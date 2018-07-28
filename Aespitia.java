@@ -1,4 +1,4 @@
-package esi18; 
+package esi18;
 import battleship.core.*;
 import java.util.List;
 
@@ -7,7 +7,7 @@ import java.util.List;
  * @author Your Name
  */
 public class Aespitia extends Ship {
-    
+
     public Aespitia() {
         this.initializeName("Aespitia");
         this.initializeOwner("Your Name");
@@ -16,7 +16,7 @@ public class Aespitia extends Ship {
         this.initializeSpeed(1);
         this.initializeRange(5);
     }
-    
+
     /*
      * Determines what actions the ship will take on a given turn
      * @param arena (Arena) the battlefield for the match
@@ -24,31 +24,39 @@ public class Aespitia extends Ship {
      */
     @Override
     protected void doTurn(Arena arena) {
-      
-        Coord location = this.getCoord();
-        
-         List<Ship> nearby = this.getNearbyShips(arena);
 
+        List<Ship> nearby = this.getNearbyShips(arena);
+        
+        int numFriends=0;
+        int numShots = this.getRemainingShots();
         // loop through the list of nearby ships
+        Ship focus = nearby.get(0);
         for (int i = 0; i < nearby.size(); i++) {
+            
             if ( this.isSameTeamAs(nearby.get(i)) ) {
                 // if same team, don't shoot
+                numFriends = numFriends + 1;
             }
             else {
                 Ship enemy = nearby.get(i);
                 Coord enemyLoc = enemy.getCoord();
                 int x = enemyLoc.getX();
                 int y = enemyLoc.getY();
-                this.fire(arena, x, y);
-                 this.fire(arena, x, y);
-                  this.fire(arena, x, y);
+               
+                while(enemy.getHealth() > 0 && numShots > 0) {
+                    this.fire(arena, x, y);
+                    numShots = this.getRemainingShots();
+                }
+            }
+            
+            if ( nearby.size() > numFriends ) {
+                  //boat shouldnt move East, because nearby ship is greater than 0
+            }
+            else{
+                this.move(arena, Direction.EAST);
+            }
+        }
+        
+        
     }
-      if (0< nearby.size()) {
-          //boat shouldnt move East, because nearby ship is greater than 0
-      }
-      else{this.move(arena, Direction.EAST);
-          
-      }
-}
-}
 }
