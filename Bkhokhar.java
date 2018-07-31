@@ -6,11 +6,11 @@ import java.util.List;
  * DroneShip
  * @author TA
  */
-public class bkhokhar extends Ship {
+public class Bkhokhar extends Ship {
 
     private int waitToMove;
     
-    public bkhokhar() {
+    public Bkhokhar() {
         this.initializeName("bkhokhar");
         this.initializeOwner("bilal");
         this.initializeHull(3);
