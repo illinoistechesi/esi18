@@ -6,12 +6,12 @@ import java.util.List;
 public class ZKyledipietropaolo extends Ship {
     
     public ZKyledipietropaolo() {
-        this.initializeName("Simple Ship");
+        this.initializeName("Shipy");
         this.initializeOwner("Zoe");
-        this.initializeHull(1);
-        this.initializeFirepower(1);
-        this.initializeSpeed(1);
-        this.initializeRange(1);
+        this.initializeHull(5);
+        this.initializeFirepower(3);
+        this.initializeSpeed(0);
+        this.initializeRange(2);
     }
    
   
@@ -27,23 +27,23 @@ public class ZKyledipietropaolo extends Ship {
     Coord targetLocation;
     for (int index = 0; target == true ; index += 1) {
      
-    
-     Ship enemy = targets.get(index);
-     boolean isOnMyTeam = this.isSameTeamAs(enemy);
-      if (isOnMyTeam){
-        
-      }
+        Ship enemy = targets.get(index);
+        boolean isOnMyTeam = this.isSameTeamAs(enemy);
+        if (isOnMyTeam){
+
+        }
         else {
             if((enemy.getHealth() < this.getFirepower())){
-            target = true;
-              targetLocation = enemy.getCoord();
-         
+                target = true;
+                targetLocation = enemy.getCoord();
+                int x = targetLocation.getX();
+                int y = targetLocation.getY();
+                this.fire(arena, x, y);  
             }
             else{
                 
             }
         }
-    
         // return target;
     }
 

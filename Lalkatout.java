@@ -9,7 +9,7 @@ import java.util.List;
 public class Lalkatout extends Ship {
 
     public Lalkatout() {
-        this.initializeName("Simple Ship");
+        this.initializeName("Clean");
         this.initializeOwner("Clean");
         this.initializeHull(3);
         this.initializeFirepower(3);
