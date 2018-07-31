@@ -45,10 +45,10 @@ public class Oopenibo extends Ship {
         Ship other = nearby.get(i);
         boolean isOnMyTeam = this.isSameTeamAs(other);
         if (isOnMyTeam) {
-            System.out.println("This ship is on my team!");
+            // System.out.println("This ship is on my team!");
         } 
         else {
-            System.out.println("This ship is an enemy.");
+            // System.out.println("This ship is an enemy.");
             Ship enemy = nearby.get(i);
             Coord enemyLoc = enemy.getCoord();
              int a = enemyLoc.getX();

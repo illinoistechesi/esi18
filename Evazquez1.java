@@ -42,7 +42,7 @@ public class Evazquez1 extends Ship {
     }
     for (int index = 0; index < nearby.size(); index += 1) {
         Ship shipInfo = nearby.get(index);
-        System.out.println("One nearby ship has " + shipInfo.getHealth() + " HP left.");
+        // System.out.println("One nearby ship has " + shipInfo.getHealth() + " HP left.");
     
        Coord location = shipInfo.getCoord();
         int x = location.getX();
