@@ -39,6 +39,7 @@ public class Akhek extends Ship {
                 int y = enemyLoc.getY();
                 while (health > 0) {
                     this.fire(arena, x, y);
+                    health--; // needs this to avoid infinite loop
                 }
                 
             }
