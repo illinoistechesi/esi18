@@ -9,7 +9,7 @@ import java.util.List;
 public class Akhek extends Ship {
     
     public Akhek() {
-        this.initializeName("Simple Ship");
+        this.initializeName("Friend");
         this.initializeOwner("Your Name");
         this.initializeHull(3);
         this.initializeFirepower(4);
@@ -39,7 +39,7 @@ public class Akhek extends Ship {
                 int y = enemyLoc.getY();
                 while (health > 0) {
                     this.fire(arena, x, y);
-                    health--; // needs this to avoid infinite loop
+                    health--;
                 }
                 
             }

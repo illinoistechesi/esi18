@@ -1,20 +1,23 @@
-package esi18; 
+package esi18;
 import battleship.core.*;
 import java.util.List;
 
 /*
- * SimpleShip
- * @author Your Name
+ * DroneShip
+ * @author TA
  */
 public class Jivaniv extends Ship {
+
+    private int waitToMove;
     
     public Jivaniv() {
         this.initializeName("jivaniv");
-        this.initializeOwner("Julia Ivaniv");
-        this.initializeHull(4);
+        this.initializeOwner("julia");
+        this.initializeHull(2);
         this.initializeFirepower(3);
-        this.initializeSpeed(2);
+        this.initializeSpeed(4);
         this.initializeRange(1);
+        waitToMove = 1;
     }
     
     /*
@@ -24,46 +27,56 @@ public class Jivaniv extends Ship {
      */
     @Override
     protected void doTurn(Arena arena) {
-        Coord coord = this.getCoord();
-        int x = coord.getX();
-        int y = coord.getY();
-        System.out.println("My ship is at (" + x + ", " + y + ").");
-        int numMoves = this.getRemainingMoves();
-
-        // if (enemy.getSpeed() > this.getSpeed()) {
-        //     System.out.println("The enemy ship will move before my ship.");
-        //     if (x < 5){
-        //         while(numMoves > 0) {
-        //         // move north, west until there's only one turn left
-        //             this.move(arena, Direction.NORTH);
-        //             this.move(arena, Direction.WEST);
-        //         // update the number of turn remaining
-        //             numMoves = this.getRemainingMoves();
-        //         }
-        //         this.move(arena, Direction.EAST);
-        //     }
-        //     if (x > 5){
-        //          while(numMoves > 0) {
-        //             // move north, west until there's only one turn left
-        //             this.move(arena, Direction.NORTH);
-        //             this.move(arena, Direction.WEST);
-        //             // update the number of turn remaining
-        //             numMoves = this.getRemainingMoves();
-        //         }
-        //         this.move(arena, Direction.EAST);
-        //     }
-        // }
-          
-        // else if (enemy.getSpeed() < this.getSpeed()) {
-        //     System.out.println("The enemy ship will move after my ship.");
-        // } 
-        // else {
-        //     System.out.println("The enemy ship might move before or after my ship.");
-        // }
-
-        
+        if (waitToMove > 0) {
+            waitToMove = waitToMove - 1;
+            // do nothing
+        }
+        else {
+            Coord coord = this.getCoord();
+            int xLoc = coord.getX();
+            int yLoc = coord.getY();
+            if (this.getHealth() > 1 ) {
+                if (xLoc >= 5) {
+                    this.move(arena, Direction.WEST);
+                }
+                else if (xLoc < 5) {
+                    this.move(arena, Direction.EAST);
+                }
+               if (yLoc < 3) {
+                    this.move(arena, Direction.NORTH);
+                }
+                else if (yLoc >= 5) {
+                    this.move(arena, Direction.SOUTH);
+                }
+            }
+           else {
+               this.move(arena, Direction.WEST);
+           }
+            // Get a list of nearby ships
+            List<Ship> nearby = this.getNearbyShips(arena);
+            // Get the number of shots left on this ship
+            int numShots = this.getRemainingShots();
+            
+            // [e1, f1, e2, e3]
+            for (int i = 0; i < nearby.size(); i++) {
+                if ( this.isSameTeamAs(nearby.get(i)) ) {
+                // my group is Tati and Julia
+                } else {
+                    Ship enemy = nearby.get(i);
+                    while(enemy.getHealth() > 0 && numShots > 0) {
+                        Coord enemyLoc = enemy.getCoord();
+                        int x = enemyLoc.getX();
+                        int y = enemyLoc.getY();
+                        this.fire(arena, x, y);
+                        numShots = this.getRemainingShots();
+                    }
+                    // if we get here, that means a ship has been sunk
+                    // call this function again to update the list to not shoot at a sunk ship
+                    // don't need this
+                    // nearby = this.getNearbyShips(arena);
+                }
+            }
+        }
     }
     
-}  
-            
-         
+}

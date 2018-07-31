@@ -56,7 +56,11 @@ public class Bkhokhar extends Ship {
             List<Ship> nearby = this.getNearbyShips(arena);
             // Get the number of shots left on this ship
             int numShots = this.getRemainingShots();
-
+            
+            // sample, will delete later
+            // [e1, f1, e2, e3]
+            // i = 1
+            // enemy = e1
             for (int i = 0; i < nearby.size(); i++) {
                 if ( this.isSameTeamAs(nearby.get(i)) ) {
                 // my group is Tati and Julia
@@ -71,7 +75,8 @@ public class Bkhokhar extends Ship {
                     }
                     // if we get here, that means a ship has been sunk
                     // call this function again to update the list to not shoot at a sunk ship
-                    nearby = this.getNearbyShips(arena);
+                    // don't need this
+                    // nearby = this.getNearbyShips(arena);
                 }
             }
         }

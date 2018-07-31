@@ -11,9 +11,9 @@ public class Nsilyarska extends Ship {
     public Nsilyarska() {
         this.initializeName("Simple Ship");
         this.initializeOwner("Your Name");
-        this.initializeHull(1);
-        this.initializeFirepower(1);
-        this.initializeSpeed(1);
+        this.initializeHull(2);
+        this.initializeFirepower(3);
+        this.initializeSpeed(4);
         this.initializeRange(1);
     }
     
@@ -25,10 +25,24 @@ public class Nsilyarska extends Ship {
     @Override
     protected void doTurn(Arena arena) {
         this.move(arena, Direction.EAST);
-        Coord location = this.getCoord();
-        int x = location.getX();
-        int y = location.getY();
-        this.fire(arena, x+1, y);
+        this.move(arena, Direction.EAST);
+        this.move(arena, Direction.EAST);
+        this.move(arena, Direction.EAST);
+        
+        List<Ship> nearby = this.getNearbyShips(arena);
+        for(int i = 0; i<nearby.size();i++){
+            if (this.isSameTeamAs(nearby.get(i))){
+                //friend no fire
+            }
+            else{
+                 Coord location = nearby.get(i).getCoord();
+                int x = location.getX();
+                int y = location.getY();
+                this.fire(arena, x, y);
+            }
+            
+        }
+        
     }
     
 }
