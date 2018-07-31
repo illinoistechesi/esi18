@@ -12,9 +12,9 @@ public class Aespitia extends Ship {
         this.initializeName("Aespitia");
         this.initializeOwner("Your Name");
         this.initializeHull(1);
-        this.initializeFirepower(2;
+        this.initializeFirepower(2);
         this.initializeSpeed(1);
-        this.initializeRange(6;
+        this.initializeRange(6);
     }
 
     /*
