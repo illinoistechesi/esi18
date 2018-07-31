@@ -36,17 +36,16 @@ public class Cton extends Ship {
         List<Ship> targets = this.getNearbyShips (arena);
         if (targets.size() > 0){
            for (int i = 0; i <= targets.size(); i++){
-            Ship ship = targets.get(0);
-            Coord location = ship.getCoord();
-            if (this.isSameTeamAs(targets.get(0))){
-             // This is my team
-            } else {
-            int x = location.getX();
-            int y = location.getY();
-            this.fire(arena, x, y,);
+                Ship ship = targets.get(0);
+                Coord location = ship.getCoord();
+                if (this.isSameTeamAs(targets.get(0))){
+                // This is my team
+                } else {
+                    int x = location.getX();
+                    int y = location.getY();
+                    this.fire(arena, x, y);
+                }
             }
-           }
         }
     }
-
 }

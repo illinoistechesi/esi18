@@ -40,17 +40,19 @@ public class Evazquez1 extends Ship {
         }
       
     }
-     for (int index = 0; index < nearby.size(); index += 1) {
+    for (int index = 0; index < nearby.size(); index += 1) {
         Ship shipInfo = nearby.get(index);
         System.out.println("One nearby ship has " + shipInfo.getHealth() + " HP left.");
-    }
     
-    }
-
-   Coord location = ship.getCoord();
-        int w = location.getX();
-        int z = location.getY();
-        if(ship (arena,x + 1, y )){
+       Coord location = shipInfo.getCoord();
+        int x = location.getX();
+        int y = location.getY();
+        // buggy code
+        // if(ship (arena,x + 1, y )){
             this.fire(arena, x + 1, y);
-        } else{}
+        // buggy code
+        // } else{}
+    }
+}
+
 }

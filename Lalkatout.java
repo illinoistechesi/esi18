@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Lalkatout extends Ship {
 
-    public lalkatout() {
+    public Lalkatout() {
         this.initializeName("Simple Ship");
         this.initializeOwner("Clean");
         this.initializeHull(3);

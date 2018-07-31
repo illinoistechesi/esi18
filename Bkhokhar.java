@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Bkhokhar extends Ship {
 
-    public SimpleShip() {
+    public Bkhokhar() {
         this.initializeName("bkhokhar");
         this.initializeOwner("Bilal");
         this.initializeHull(3);
@@ -27,21 +27,23 @@ public class Bkhokhar extends Ship {
         Coord coord = this.getCoord();
         int x = coord.getX();
         int y = coord.getY();
-        }
-     if (enemy.getSpeed() > this.getSpeed()) {
-    System.out.println("The enemy ship will move before my ship.");
-        if (x < 5); {
-            this.move(arena, Direction.EAST);
-        }
-        else if (x > 5); {
-            this.move(arena, Direction.WEST);
-        }
-    }
-} else if (enemy.getSpeed() < this.getSpeed()) {
-    System.out.println("The enemy ship will move after my ship.");
-} else {
-    System.out.println("The enemy ship might move before or after my ship.");
-}
+        
+        // Undeclared variable enemy
+        // if (enemy.getSpeed() > this.getSpeed()) {
+        //     System.out.println("The enemy ship will move before my ship.");
+        //     if (x < 5) {
+        //         this.move(arena, Direction.EAST);
+        //     }
+        //     else if (x > 5); {
+        //         this.move(arena, Direction.WEST);
+        //     }
+        // } 
+        // else if (enemy.getSpeed() < this.getSpeed()) {
+        //     System.out.println("The enemy ship will move after my ship.");
+        // } 
+        // else {
+        //     System.out.println("The enemy ship might move before or after my ship.");
+        // }
     }
 
 }

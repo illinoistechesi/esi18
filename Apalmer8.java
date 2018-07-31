@@ -47,7 +47,7 @@ public class Apalmer8 extends Ship {
         Direction[] possibleMovement = {Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
 
         // get a random number and store it in a variable
-        int randomNumber = arena.getRandom().nextInt(4)
+        int randomNumber = arena.getRandom().nextInt(4);
 
         // get a random movement by using the random number to access one possibleMovement
         this.move(arena, possibleMovement[randomNumber]);
@@ -55,4 +55,5 @@ public class Apalmer8 extends Ship {
 
     // ship using this instruction will fire at location (x: 0, y: 0) each turn
     this.fire(arena, 0, 0);
+}
 }

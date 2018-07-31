@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class RGandhi extends Ship {
     
-    public SimpleShip() {
+    public RGandhi() {
         this.initializeName("The Mahatma");
         this.initializeOwner("Raj");
         this.initializeHull(2);
@@ -29,7 +29,7 @@ public class RGandhi extends Ship {
         List<Ship> nearby = this.getNearbyShips(arena);
         
         for (int i = 0; i < nearby.size(); i++) {
-            if(this.isSameTeamas(nearby,get(i))) {
+            if(this.isSameTeamAs(nearby.get(i))) {
         }
         else {
             Ship enemy = nearby.get(i);
@@ -44,4 +44,5 @@ public class RGandhi extends Ship {
         }
     }
     
+}
 }

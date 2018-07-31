@@ -15,28 +15,28 @@ public class ZKyledipietropaolo extends Ship {
     }
    
   
-   public boolean watchAndWait(){
+   public void watchAndWait(Arena arena){
       
-    public boolean target = false; 
+    boolean target = false; 
         
     List<Ship> targets = this.getNearbyShips(arena);
     
-    public Ship enemy = list.get(i);
+    // Ship enemy = targets.get(i);
   
-    boolean isOnMyTeam = this.isSameTeamAs(enemy);
-    
-    for (int index = 0; target = true; index += 1) {
+    // boolean isOnMyTeam = this.isSameTeamAs(enemy);
+    Coord targetLocation;
+    for (int index = 0; target == true ; index += 1) {
      
     
-     Ship shipInfo = targets.get(index);
-     
+     Ship enemy = targets.get(index);
+     boolean isOnMyTeam = this.isSameTeamAs(enemy);
       if (isOnMyTeam){
         
       }
         else {
             if((enemy.getHealth() < this.getFirepower())){
-            target = true
-              Coord TargetLocation = enemy.getCoord();
+            target = true;
+              targetLocation = enemy.getCoord();
          
             }
             else{
@@ -44,33 +44,33 @@ public class ZKyledipietropaolo extends Ship {
             }
         }
     
-        return target;
+        // return target;
     }
 
    
-   public turnAction (boolean target){
+   //public void turnAction (boolean target){
        
-       if(target){
+    //   if(target){
          
-         if (isInRange(this, enemy)) {
-         int x = targetLocation.getX();
-        int y = targetLocation.getY();
-        this.fire(arena, x, y);  
-         }
-       }
-       else{
+    //      if (arena.isInRange(this, enemy)) {
+    //      int x = targetLocation.getX();
+    //     int y = targetLocation.getY();
+    //     this.fire(arena, x, y);  
+    //      }
+    //   }
+    //   else{
            
-       }
-   }
+    //   }
+   //}
    
        
    }
-   public 
+  // public 
 
     @Override
    protected void doTurn(Arena arena) {
-  
-        watchAndWait();
+        
+        watchAndWait(arena);
         
         
       

@@ -51,7 +51,7 @@ public class Gabrielsaucedo extends Ship {
     this.fire(arena, 1, 3);
 
     // get a list of nearby ships
-    List<Ship> targets = this.getNearbyShips(arena);
+    // List<Ship> targets = this.getNearbyShips(arena);
 
     // loop over all nearby ships
     for (int index = 0; index < targets.size(); index += 1) {
@@ -70,7 +70,5 @@ public class Gabrielsaucedo extends Ship {
     }
     }
 }
-        
-    }
     
 }

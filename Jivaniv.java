@@ -24,44 +24,46 @@ public class Jivaniv extends Ship {
      */
     @Override
     protected void doTurn(Arena arena) {
-        Coord coord = this.getCoord():
-int x = coord.getX();
-int y = coord.getY();
-System.out.println("My ship is at (" + x + ", " + y + ").");
-int numMoves = this.getRemainingMoves();
+        Coord coord = this.getCoord();
+        int x = coord.getX();
+        int y = coord.getY();
+        System.out.println("My ship is at (" + x + ", " + y + ").");
+        int numMoves = this.getRemainingMoves();
 
-        if (enemy.getSpeed() > this.getSpeed()) {
-    System.out.println("The enemy ship will move before my ship.");
-        if (x < 5){
-            while(numMoves > 0) {
-        // move north, west until there's only one turn left
-        this.move(arena, Direction.NORTH);
-        this.move(arena, Direction.WEST);
-        // update the number of turn remaining
-        numMoves = this.getRemainingMoves();
-    }
-    this.move(arena, Direction.EAST);
-}
-if (x > 5){
-     while(numMoves > 0) {
-        // move north, west until there's only one turn left
-        this.move(arena, Direction.NORTH);
-        this.move(arena, Direction.WEST);
-        // update the number of turn remaining
-        numMoves = this.getRemainingMoves();
-    }
-    this.move(arena, Direction.EAST);
-}
-}
-            
-        }
-} else if (enemy.getSpeed() < this.getSpeed()) {
-    System.out.println("The enemy ship will move after my ship.");
-} else {
-    System.out.println("The enemy ship might move before or after my ship.");
-}
+        // if (enemy.getSpeed() > this.getSpeed()) {
+        //     System.out.println("The enemy ship will move before my ship.");
+        //     if (x < 5){
+        //         while(numMoves > 0) {
+        //         // move north, west until there's only one turn left
+        //             this.move(arena, Direction.NORTH);
+        //             this.move(arena, Direction.WEST);
+        //         // update the number of turn remaining
+        //             numMoves = this.getRemainingMoves();
+        //         }
+        //         this.move(arena, Direction.EAST);
+        //     }
+        //     if (x > 5){
+        //          while(numMoves > 0) {
+        //             // move north, west until there's only one turn left
+        //             this.move(arena, Direction.NORTH);
+        //             this.move(arena, Direction.WEST);
+        //             // update the number of turn remaining
+        //             numMoves = this.getRemainingMoves();
+        //         }
+        //         this.move(arena, Direction.EAST);
+        //     }
+        // }
+          
+        // else if (enemy.getSpeed() < this.getSpeed()) {
+        //     System.out.println("The enemy ship will move after my ship.");
+        // } 
+        // else {
+        //     System.out.println("The enemy ship might move before or after my ship.");
+        // }
 
         
     }
     
-}
+}  
+            
+         
